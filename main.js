@@ -2,10 +2,6 @@ var bezos = document.getElementById('bezos');
 var bezos_counter = document.getElementById('bezos-counter');
 var bezosCounterStart = document.getElementById('bezos-counter-start');
 
-var four_hundred = document.getElementById('four-hundred');
-var four_hundred_counter = document.getElementById('four-hundred-counter');
-var four_hundred_counter_start = document.getElementById('four-hundred-counter-start');
-
 var sixtyPercent = document.getElementById('sixty-percent');
 var sixtyPercentIndicator = document.getElementById('sixty-percent-indicator');
 var sixtyPercentScrollPercentage = 0.0;
@@ -78,36 +74,26 @@ function update_wealth_counter() {
   if (bezos_viewable()) {
     if (bezos_counter_viewable()) {
       let wealth = (window.scrollX - bezos.offsetLeft + 175) * 500000;
-      bezos_counter.innerHTML = (wealth < 176000000000) ? money.format(wealth) : "$176,000,000,000";
+      bezos_counter.innerHTML = numberWithCommas(wealth) + " people";
     }
     else {
       bezos_counter.innerHTML = '';
     }
   }
-  else if (four_hundred_viewable()) {
-    if (four_hundred_counter_viewable()) {
-      let wealth = (window.scrollX - four_hundred.offsetLeft + 175) * 500000;
-      four_hundred_counter.innerHTML = (wealth < 3500000000000) ? money.format(wealth) : "$3,500,000,000,000";
-    }
-    else {
-      four_hundred_counter.innerHTML = '';
-    }
-  }
+
   function bezos_viewable() {
     return window.scrollX < bezos.offsetLeft + bezos.offsetWidth + 100;
   }
   function bezos_counter_viewable() {
     return bezosCounterStart.offsetLeft - window.scrollX < (window.innerWidth);
   }
-  function four_hundred_viewable() {
-    return window.scrollX < four_hundred.offsetLeft + four_hundred.offsetWidth + 100;
-  }
-  function four_hundred_counter_viewable() {
-    return four_hundred_counter_start.offsetLeft - window.scrollX < (window.innerWidth);
-  }
 }
 function toggleZoom() {
   document.getElementById('line-chart').classList.toggle('zoom');
+}
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 
