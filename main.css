@@ -286,8 +286,8 @@ h1 {
   width: 320px;
 }
 .median .wealth {
-  width: 7.94px;
-  height: 7.94px;
+  width: 93.1px;
+  height: 93.1px;
 }
 .explainer {
   font-size: 16px;
@@ -312,9 +312,9 @@ h1 {
   }
 }
 .bezos .wealth {
-  width: 352000px;
+  width: 3000000px;
   height: 500px;
-  background-color: orange;
+  background-color: #4CAF50;
 }
 .four-hundred .wealth {
   margin-left: 100px;
